@@ -1,0 +1,36 @@
+{
+  "name": "WeChat OCR API",
+  "package": "cloud.lazycat.app.wechat-ocr-api",
+  "description": "使用微信 OCR 引擎的文本识别的 Docker 化 REST API 服务",
+  "homepage": "https://github.com/golangboy/wxocr",
+  "author": "golangboy",
+  "app_features": [
+    "background_task",
+    "public_path"
+  ],
+  "subdomain": "wechat-ocr-api",
+  "version": "0.0.1",
+  "public_paths": [
+    "/"
+  ],
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yaml",
+  "unsupported_platforms": [
+    "ios",
+    "android",
+    "tvos"
+  ],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "wxocr_5000_5000": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_golangboyme_wxocr": {
+    "originalImage": "golangboyme/wxocr",
+    "pushTarget": "none"
+  }
+}

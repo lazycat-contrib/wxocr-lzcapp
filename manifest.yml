@@ -1,0 +1,26 @@
+lzc-sdk-version: "0.1"
+name: WeChat OCR API
+package: cloud.lazycat.app.wxocr
+version: 0.0.1
+description: 使用微信 OCR 引擎的文本识别的 Docker 化 REST API 服务
+homepage: https://github.com/golangboy/wxocr
+author: golangboy
+application:
+  subdomain: wxocr
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  handlers:
+    error_page_templates:
+      404: /lzcapp/pkg/content/errors/404.html.tpl
+  public_path:
+    - /
+  routes:
+    - /=http://wxocr:5000/
+    - /help=file:///lzcapp/pkg/content/help.html
+services:
+  wxocr:
+    image: docker.hlmirror.com/golangboyme/wxocr
+
