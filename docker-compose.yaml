@@ -1,6 +1,0 @@
-services:
-    wxocr:
-        ports:
-            - 5000:5000
-        container_name: wechat-ocr-api
-        image: golangboyme/wxocr

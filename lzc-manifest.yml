@@ -1,0 +1,18 @@
+application:
+  subdomain: wxocr
+  background_task: true
+  handlers:
+    error_page_templates:
+      404: /lzcapp/pkg/content/errors/404.html.tpl
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://wxocr:5000/
+    - location: /help
+      backend: file:///lzcapp/pkg/content/help.html
+
+services:
+  wxocr:
+    # upstream: golangboyme/wxocr:latest
+    image: docker.1ms.run/golangboyme/wxocr:latest@sha256:01a362c158dd805f3cf19a714c0f8651b1661317a29aa69047254d3a75d676e2
